@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07080c">
+  <title>VEYLORA: Perfume store website concept by Ascenta Studio</title>
+  <meta name="description"
+    content="Perfume store website concept designed and built by Ascenta Studio. A perfume boutique window on a rainy night: pick one of five bottles and look closer. The brand and products are fictional.">
+  <link rel="preload" href="media/lit-2048.webp?v=10" as="image" media="(min-aspect-ratio:4/5) and (min-width:761px)">
+  <link rel="preload" href="media/m-lit-1024.webp?v=10" as="image" media="(max-aspect-ratio:4/5),(max-width:760px)">
+  <link rel="preload" href="manrope.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="pluieb6f5.css?v=10">
+</head>
+
+<body>
+  <canvas id="vitrina" aria-hidden="true"></canvas>
+  <div id="velo" aria-hidden="true"></div>
+  <div id="sombra" aria-hidden="true"></div>
+
+  <header class="barra" id="barra">
+    <a class="marca" href="index.html" aria-label="Veylora Parfums, home">VEYLORA</a>
+    <nav class="menu" id="menu" aria-label="Main">
+      <a href="#tienda">Collection</a>
+      <a href="#maison">Maison</a>
+      <a href="#boutiques">Boutiques</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"
+      aria-controls="menu"><i></i><i></i></button>
+    <button class="bolsa" id="bolsa" type="button" aria-haspopup="dialog" aria-controls="cajon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5.5 8.5h13l-1 11.5h-11z" />
+        <path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" />
+      </svg>
+      <span class="bolsa-txt">Bag</span>
+      <span class="cuenta" id="cuenta" aria-live="polite">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="escena" id="tienda" aria-label="The boutique window">
+      <h1 class="oculto">Veylora Parfums: five eaux de parfum</h1>
+      <p class="pista" id="pista"></p>
+      <nav class="lista" aria-label="The five perfumes" id="lista"></nav>
+    </section>
+  </main>
+
+  <section class="ficha" id="ficha" hidden aria-labelledby="fNombre">
+    <div class="ficha-cristal">
+      <p class="fl ojo" id="fOjo"></p>
+      <h2 class="fl" id="fNombre"></h2>
+      <dl class="fl piramide" id="fNotas"></dl>
+      <div class="fl tallas" role="radiogroup" aria-label="Size" id="fTallas"></div>
+      <button class="fl comprar" id="fComprar" type="button">
+        <span class="c-txt"><span>Add to bag</span><span class="c-precio" id="fPrecio"></span></span>
+        <span class="c-ok" aria-hidden="true"><svg viewBox="0 0 24 24">
+            <path d="M5 12.5l4.2 4.2L19 7" />
+          </svg>Added</span>
+      </button>
+      <p class="fl extra">Complimentary samples and gift wrapping with every order.</p>
+      <button class="fl volver" id="fVolver" type="button"><span aria-hidden="true">←</span> Back to the window</button>
+    </div>
+  </section>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+  <div class="cajon" id="cajon" role="dialog" aria-modal="true" aria-label="Your bag" hidden>
+    <div class="cajon-fondo" data-cierra></div>
+    <div class="cajon-panel">
+      <div class="cajon-cab">
+        <h2>Your bag</h2><button type="button" class="x" data-cierra aria-label="Close the bag">×</button>
+      </div>
+      <ul class="cajon-lista" id="cajonLista"></ul>
+      <p class="cajon-vacio" id="cajonVacio">Your bag is empty. The window is waiting.</p>
+      <div class="cajon-pie" id="cajonPie">
+        <p class="sub"><span>Subtotal</span><strong id="subtotal">$0</strong></p>
+        <p class="nota">Shipping and taxes calculated at checkout.</p>
+        <button type="button" class="pagar">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pie" id="pie">
+    <div class="pie-cristal">
+      <div class="pie-rejilla">
+        <form class="carta" id="maison" onsubmit="return false">
+          <h2>Letters from the boutique</h2>
+          <p>New scents, private evenings and the odd rainy-night story. One letter a month.</p>
+          <label class="campo"><span class="oculto">Email address</span>
+            <input type="email" placeholder="Email address" autocomplete="email" required>
+            <button type="submit" aria-label="Subscribe">Subscribe</button>
+          </label>
+        </form>
+        <nav class="col" aria-label="Shop">
+          <h3>Shop</h3>
+          <a href="#tienda">The five</a><a href="#tienda">Discovery set</a><a href="#tienda">Gift cards</a>
+        </nav>
+        <nav class="col" id="boutiques" aria-label="Maison">
+          <h3>Maison</h3>
+          <a href="#maison">Our story</a><a href="#maison">The perfumers</a><a href="#boutiques">Boutiques</a>
+        </nav>
+        <nav class="col" aria-label="Client care">
+          <h3>Client care</h3>
+          <a href="#pie">Shipping &amp; returns</a><a href="#pie">Contact us</a><a href="#pie">FAQ</a>
+        </nav>
+      </div>
+      <div class="pie-base">
+        <span class="pie-marca">VEYLORA Parfums</span>
+        <span>© 2026</span>
+        <a href="#pie">Privacy</a><a href="#pie">Terms</a><a href="#pie">Instagram</a>
+        <span class="pie-moneda">USD $</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    addEventListener('error', function () { document.body.classList.add('listo') }); setTimeout(function () { document.body.classList.add('listo') }, 15000);</script>
+  <script src="pluieb6f5.js?v=10" defer></script>
+</body>
+
+</html>
